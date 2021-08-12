@@ -61,6 +61,7 @@
       direction="animated-arrowLtr"
       class="link link-left"
       textColor="#36C486"
+      hoverColor="#485DA6"
     />
     <HomePageLink
       action="Parcours"
@@ -68,6 +69,7 @@
       direction="animated-arrowRtl"
       class="link link-top"
       textColor="#36C486"
+      hoverColor="#00a1ba"
     />
     <HomePageLink
       action="Compétences"
@@ -75,6 +77,7 @@
       direction="animated-arrowRtl"
       class="link link-bottom"
       textColor="#36C486"
+      hoverColor="#36C486"
     />
   </b-container>
 </template>
@@ -144,6 +147,7 @@ export default {
       }
       h1 {
         @include customFont;
+        letter-spacing: 0.5rem;
         @include text_shadow(2px, 3px, 2px);
         color: $white !important;
         margin-left: 2rem;

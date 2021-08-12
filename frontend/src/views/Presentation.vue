@@ -61,13 +61,14 @@
         </div>
       </b-col>
     </b-row>
-    <b-row class="bottom position-relative">
+    <b-row class="footer justify-content-center align-items-center">
       <HomePageLink
         action="Retour"
         url="/"
         direction="animated-arrowRtl"
-        class="position-absolute link link-right"
+        class="link link-right"
         textColor="#485DA6"
+        hoverColor="#485DA6"
       />
     </b-row>
   </b-container>
@@ -205,7 +206,7 @@ export default {
     }
   }
 }
-.bottom {
+.footer {
   height: 8vh;
 }
 @keyframes tilt-in-fwd-tl {
@@ -289,13 +290,9 @@ export default {
       padding-top: 3rem;
     }
   }
-  .bottom {
+  .footer {
     .link {
-      &-right {
-        transform: translate(50%) scale(0.7);
-        right: 50%;
-        bottom: 50%;
-      }
+      transform: scale(0.7);
     }
   }
 }

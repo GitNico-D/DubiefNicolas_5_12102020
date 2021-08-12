@@ -26,7 +26,7 @@ export default {
     textColor: String,
     hoverColor: String
   }
-};
+}
 </script>
 
 <style lang="scss">
@@ -45,10 +45,6 @@ export default {
       margin: 0 $text-arrow-space 0 0;
       line-height: 1;
       letter-spacing: 3px;
-      @include text_shadow;
-      // &:hover {
-      //   @include text_shadow_hover(0px, 0px, 2px, var(--hover-color));
-      // }
     }
     .the-arrow {
       position: relative;
@@ -78,13 +74,13 @@ export default {
         }
       }
       .text {
-        @include text_shadow_hover(0px, 0px, 2px, var(--hover-color));
+        @include text_shadow_hover(0px, 0px, 5px, var(--hover-color));
       }
-      .the-arrow {
-        .shaft {
-          @include box_shadow;
-          background-color: var(--hover-color);
-        }
+    }
+    .the-arrow {
+      .shaft {
+        @include box_shadow(0px, 0px, 10px, var(--hover-color));
+        background-color: var(--hover-color);
       }
     }
   }
@@ -92,7 +88,7 @@ export default {
     width: $shaft-width;
     transition: all 0.2s;
     &.-right {
-      top: 6px;
+      top: 2px;
       .shaft {
         width: $shaft-width;
         &:before,
@@ -103,7 +99,6 @@ export default {
         &:before {
           transform: rotate(40deg);
         }
-
         &:after {
           transform: rotate(-40deg);
         }
@@ -116,10 +111,6 @@ export default {
       position: relative;
       transition: all 0.2s;
       will-change: transform;
-      &:hover {
-        background-color: var(--hover-color);
-        @include box_shadow;
-      }
       &:before,
       &:after {
         background-color: var(--text-color);
@@ -156,10 +147,6 @@ export default {
       margin: 0 0 0 ($shaft-width + $text-arrow-space);
       line-height: 1;
       letter-spacing: 3px;
-      @include text-shadow(0px, 0px, 2px, var(--text-color));
-      &:hover {
-        @include text_shadow_hover;
-      }
     }
     .the-arrow {
       position: absolute;
@@ -189,11 +176,20 @@ export default {
           }
         }
       }
+      .text {
+        @include text_shadow_hover(0px, 0px, 5px, var(--hover-color));
+      }
+    }
+    .the-arrow {
+      .shaft {
+        @include box_shadow(0px, 0px, 10px, var(--hover-color));
+        background-color: var(--hover-color);
+      }
     }
   }
   .the-arrow {
     &.-right {
-      top: 24px;
+      top: 18px;
       .shaft {
         width: $shaft-width;
         &:before,
