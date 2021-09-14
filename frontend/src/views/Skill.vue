@@ -24,7 +24,7 @@
           <figure class="figure" 
             v-for="skill in categories.skills" 
             :key="skill.id">
-            <img  :src="skill.icon" class="figure-img img-fluid rounded">
+            <img :src="skill.icon" class="figure-img img-fluid rounded">
             <figcaption class="figure-caption text-center">{{ skill.name }}</figcaption>
           </figure>
         </div>
@@ -33,11 +33,11 @@
         <div
           v-show="current == categories.id"
           class="software-block justify-content-around align-items-center flex-wrap">
-          <h4 class="software-title text-center text-uppercase mb-5">Logiciel associées</h4>
+          <h4 class="software-title text-center mb-5">Logiciel associées</h4>
           <figure class="figure" 
             v-for="software in categories.softwares"
             :key="software.id">
-            <img  :src="software.icon" class="figure-img img-fluid rounded">
+            <img :src="software.icon" class="figure-img img-fluid rounded">
             <figcaption class="figure-caption text-center">{{ software.name }}</figcaption>
           </figure>
         </div>
@@ -95,7 +95,6 @@ export default {
     setTimeout(() => {
       this.showTransition = false;
     }, 1300);
-    console.log(this.current);
   },
   mounted() {
     // Dispatch all categories contains in the vuex state.projects
@@ -165,9 +164,26 @@ export default {
   .figure {
     width: 12vw;
     margin: 1rem;
+    border: 1px solid transparent;
     &-caption {
       font-family: 'Oswald', sans-serif;
       letter-spacing: 0.1rem;
+      &:hover {
+        @include text_shadow;
+      }
+    }
+    animation: bounce-in-fwd 1.1s both;
+    @for $i from 1 through 20 {
+      &:nth-child(#{$i}) {
+        animation-delay: $i * 0.2s;
+      }
+    }
+    &:hover {
+      .figure { 
+        &-img, &-caption {
+          transform: scale(1.1);
+        }
+      }
     }
   }
   .from-center{
@@ -211,51 +227,17 @@ export default {
       animation: scale-up-hor-right 0.5s cubic-bezier(0.39, 0.575, 0.565, 1)
         both;
     }
-    &-block {
-      .card {
-        animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)
-          both;
-        @for $i from 1 through 10 {
-          &:nth-child(#{$i}) {
-            animation-delay: $i * 0.2s;
-          }
-        }
-      }
-    }
   }
   .software {
     &-title {
       font-family: "Montserrat", sans-serif;
       color: $white;
     }
-    &-block {
-      .card {
-        animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)
-          1s both;
-        @for $i from 1 through 10 {
-          &:nth-child(#{$i}) {
-            animation-delay: $i * 0.2s;
-          }
-        }
-      }
-    }    
   }
   .icon-circle {
     border: 2px solid black;
     list-style: none;
     border-radius: 50%;
-  }
-}
-@keyframes swing-in-top-fwd {
-  0% {
-    transform: rotateX(-100deg);
-    transform-origin: top;
-    opacity: 0;
-  }
-  100% {
-    transform: rotateX(0deg);
-    transform-origin: top;
-    opacity: 1;
   }
 }
 @keyframes scale-up-center {
@@ -264,6 +246,46 @@ export default {
   }
   100% {
     transform: scale(1);
+  }
+}
+@keyframes bounce-in-fwd {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  20% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  40% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  60% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  80% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
   }
 }
 @media (min-width: 320px) {

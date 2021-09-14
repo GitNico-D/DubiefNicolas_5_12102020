@@ -276,8 +276,8 @@ export default {
   .presentation {
     .card {
       &-img-top {
-        transform: translate(10%, -30%);
-        width: 80%;
+        transform: translate(35%, -50%);
+        width: 60%;
       }
       &-title {
         font-size: 1.5rem;
@@ -300,7 +300,7 @@ export default {
   .presentation {
     .card {
       &-img-top {
-        transform: translate(10%, -50%);
+        transform: translate(35%, -50%);
       }
       &-title {
         font-size: 1.5rem;
@@ -339,7 +339,7 @@ export default {
     .card {
       &-img-top {
         transform: translate(-40%, -60%);
-        widows: 100%;
+        width: 50%;
       }
       &-title {
         font-size: 2.5rem;

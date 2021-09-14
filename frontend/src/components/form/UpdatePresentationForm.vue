@@ -133,6 +133,8 @@
           <b-img
             :src="oldPicture"
             fluid
+            thumbnail
+            width= "480"
             alt="Fluid image"
             class="mt-1"
             v-show="!modifyPresentation.picture && oldPicture"
@@ -152,6 +154,7 @@
               id="input-new-picture"
               ref="file"
               name="new-picture"
+              width= "480"
               v-model="modifyPresentation.picture"
               browse-text="Parcourir"
               accept="image/*"
