@@ -117,7 +117,7 @@ class ProjectController extends AbstractController
      * DELETE an existing Project resource
      *
      * @Route("/projects/{id}", name="delete_project", methods={"DELETE"})
-     * @ParamConverter("project", class="App:project")
+     * @ParamConverter("project", class="App:Project")
      * @IsGranted("ROLE_ADMIN")
      *
      * @param Project $project
