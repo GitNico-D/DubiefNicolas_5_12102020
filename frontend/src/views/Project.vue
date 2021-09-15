@@ -16,13 +16,14 @@
         :date="project.creationDate"
       />
     </b-row>
-    <b-row class="back position-relative">
+    <b-row class="footer justify-content-center align-items-center">
       <HomePageLink
         action="Retour"
         url="/"
         direction="animated-arrowLtr"
-        class="position-absolute link link-left"
+        class="link link-left"
         textColor="#6d327c"
+        hoverColor="#6d327c"
       />
     </b-row>
   </b-container>
@@ -82,7 +83,7 @@ export default {
   perspective: 1000px;
   min-height: 100vh;
   overflow: hidden;
-  .back {
+  .footer {
     height: 15vh;
   }
   .cards {
@@ -123,12 +124,10 @@ export default {
 }
 @media (min-width: 320px) {
   .container-fluid {
-    .back {
+    .footer {
       .link {
         &-left {
-          left: 50%;
-          bottom: 50%;
-          transform: translate(-50%, 0) scale(0.8);
+          transform: scale(0.6);
         }
       }
     }
@@ -146,10 +145,10 @@ export default {
 }
 @media (min-width: 768px) {
   .container-fluid {
-    .back {
+    .footer {
       .link {
         &-left {
-          transform: translate(-50%, 0) scale(0.8);
+          transform: scale(0.8);
         }
       }
     }

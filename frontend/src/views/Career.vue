@@ -15,13 +15,14 @@
       color="#00a1ba"
       :parity="index % 2 ? (parity = 'even') : (parity = 'odd')"
     />
-    <b-row class="position-relative bottom">
+    <b-row class="footer justify-content-center align-items-center mb-3">
       <HomePageLink
         action="Retour"
         url="/"
         direction="animated-arrowRtl"
-        class="position-absolute link link-bottom"
+        class="link link-bottom"
         textColor="#00a1ba"
+        hoverColor="#00a1ba"
       />
     </b-row>
     <div class="line"></div>
@@ -82,7 +83,7 @@ export default {
   min-height: 100vh;
   overflow: hidden;
 }
-.bottom {
+.footer {
   height: 15vh;
 }
 .even,
@@ -121,11 +122,7 @@ export default {
       display: none;
     }
     .link {
-      &-bottom {
-        bottom: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(90deg) scale(0.6);
-      }
+      transform: rotate(90deg) scale(0.6);
     }
   }
 }
@@ -137,9 +134,7 @@ export default {
       top: 12%;
     }
     .link {
-      &-bottom {
-        transform: translate(-50%, -50%) rotate(90deg) scale(0.8);
-      }
+      transform: rotate(90deg) scale(0.8);
     }
   }
 }

@@ -83,6 +83,7 @@ export default {
         font-family: "Oswald", sans-serif;
         color: $white;
         text-transform: uppercase;
+        font-size: 0.9rem;
         transition: ease-out 0.2s;
         animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1)
           1.3s both;
@@ -126,11 +127,8 @@ export default {
   }
   h1 {
     @include customFont;
-    text-shadow: 0 1px 0 var(--color), 0 2px 0 var(--color),
-      0 3px 0 var(--color), 0 4px 0 var(--color), 0 5px 0 var(--color),
-      0 6px 0 var(--color), 0 7px 0 var(--color), 0 8px 0 var(--color),
-      0 9px 0 var(--color);
-    color: $white;
+    @include text-shadow (0px, 0px, 5px, var(--color));
+    color: var(--color);
     text-transform: uppercase;
     animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) 1s
       both;
@@ -162,6 +160,7 @@ export default {
   .row {
     h1 {
       font-size: 1.8rem !important;
+      letter-spacing: 0.2rem!important;
     }
     .navbar {
       padding: unset;
@@ -184,6 +183,7 @@ export default {
   .row {
     h1 {
       font-size: 2.2rem !important;
+      letter-spacing: 0.5em!important;
     }
     .navbar {
       &-nav {

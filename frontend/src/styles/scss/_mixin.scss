@@ -2,8 +2,8 @@
 @import "/_variables";
 
 @mixin customFont {
-    font-weight: 900!important;
-    letter-spacing: 0.10em;
+    font-weight: 400!important;
+    letter-spacing: 0.50em;
     margin: auto;
 }
 
@@ -36,17 +36,7 @@
         7px 7px rgba(109, 50, 124, 0.04), 
         8px 8px rgba(109, 50, 124, 0.04), 
         9px 9px rgba(109, 50, 124, 0.04), 
-        0.3125rem 0.3125rem rgba(109, 50, 124, 0.04), 
-        11px 11px rgba(109, 50, 124, 0.04), 
-        12px 12px rgba(109, 50, 124, 0.04), 
-        13px 13px rgba(109, 50, 124, 0.04), 
-        14px 14px rgba(109, 50, 124, 0.04), 
-        0.625rem 0.625rem rgba(109, 50, 124, 0.04), 
-        16px 16px rgba(109, 50, 124, 0.04), 
-        17px 17px rgba(109, 50, 124, 0.04),
-        18px 18px rgba(109, 50, 124, 0.04), 
-        19px 19px rgba(109, 50, 124, 0.04), 
-        1.25rem 1.25rem rgba(109, 50, 124, 0.04);
+        0.3125rem 0.3125rem rgba(109, 50, 124, 0.04)
 }
 
 @mixin text-shadow-3d($color: $green) {
@@ -59,4 +49,30 @@
     0 7px 0 $color,
     0 8px 0 $color,
     0 9px 0 $color;
+}
+
+@mixin on-circle($item-count, $circle-size, $item-size) {  
+    position: relative;
+    width:  $circle-size;
+    height: $circle-size;
+    border-radius: 50%;
+    padding: 0; 
+    list-style: none;
+    > * {
+        display: block;
+        position: absolute;
+        top:  50%; 
+        left: 50%;
+        margin: -($item-size / 2);
+        width:  $item-size;
+        height: $item-size;
+        $angle: (360 / $item-count);
+        $rot: 0;
+        @for $i from 1 through $item-count {
+            &:nth-of-type(#{$i}) {
+                transform: rotate($rot * 1deg) translate($circle-size / 2) rotate($rot * -1deg);
+            }
+            $rot: $rot + $angle;
+        }
+    }
 }

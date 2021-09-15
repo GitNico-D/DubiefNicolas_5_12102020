@@ -4,14 +4,13 @@
       overlay
       :img-src="imgSrc"
       :img-alt="imgAlt"
-      :title="title"
       :date="date"
       class="frontcard"
     >
     </b-card>
     <b-card class="backcard">
       <b-card-text>
-        <p class="card-text-date">{{ formatDate(date) }}</p>
+        <p class="card-title text-center">{{ title }}</p>
         <p class="card-text-content">{{ content }}</p>
       </b-card-text>
       <b-link :href="url" class="btn">Vers le site</b-link>
@@ -44,11 +43,6 @@ export default {
 <style lang="scss">
 .cardflip {
   font-family: "Oswald", sans-serif;
-  .card-title {
-    color: $white;
-    text-transform: uppercase;
-    @include special-text-shadow;
-  }
   .frontcard,
   .backcard {
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -58,18 +52,22 @@ export default {
     padding: 0.5em;
     background: $white;
     border-radius: 10px;
-    .card-title {
-      font-size: 3rem;
+    .card {
+      &-title {
+        font-size: 3rem;
+      }
     }
   }
   .frontcard {
     transform: rotateY(0deg);
     @include box_shadow(0px, 0px, 5px, $white);
     background: $white;
-    .card-body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .card {
+      &-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
     }
   }
   .backcard {
@@ -82,26 +80,37 @@ export default {
     transform: rotateY(-180deg);
     @include box_shadow(0px, 0px, 30px, $purple);
     @include box_shadow(0px, 0px, 1px, $purple);
-    .card-text {
-      padding: 0.5rem;
-      font-size: 1.1rem;
-      line-height: 2rem;
-      color: $purple;
-      border-radius: 10px;
-    }
-    .card-body {
-      display: flex;
-      flex-direction: column;
-      .btn {
-        color: $purple !important;
-        background-color: transparent !important;
-        border: 1px solid $purple !important;
-        transform: translateZ(100px);
-        &:hover {
-          color: $white !important;
-          background-color: $purple !important;
-          @include box_shadow(0px, 0px, 10px, $purple);
+    .card {
+      &-text {
+        padding: 0.5rem;
+        font-size: 1.1rem;
+        line-height: 2rem;
+        color: $purple;
+        border-radius: 10px;
+        text-align: center;
+        font-family: "Oswald", sans-serif;
+      }
+      &-body {
+        display: flex;
+        flex-direction: column;
+        .btn {
+          color: $purple !important;
+          background-color: transparent !important;
+          border: 1px solid $purple !important;
+          transform: translateZ(100px);
+          &:hover {
+            color: $white !important;
+            background-color: $purple !important;
+            @include box_shadow(0px, 0px, 10px, $purple);
+          }
         }
+      }
+      &-title {
+        font-family: "Montserrat", sans-serif;
+        color: $purple;
+        text-transform: uppercase;
+        @include special-text-shadow;
+        margin-bottom: 1.5rem;
       }
     }
   }
@@ -120,16 +129,13 @@ export default {
   .cardflip {
     width: 100%;
     margin: 1rem;
-    .frontcard {
-      .card-title {
-        font-size: 1.5rem;
-      }
-    }
     .backcard {
-      .card-body {
-        padding: unset;
-        justify-content: center;
-        .card-text {
+      .card {
+        &-body {
+          padding: unset;
+          justify-content: center;
+        }
+        &-text {
           padding: unset;
           font-size: 0.6rem;
           line-height: unset;
@@ -140,24 +146,30 @@ export default {
             margin-bottom: 0;
           }
         }
+        &-title {
+          font-size: 0.6rem;
+        }
+      }
+      .btn {
+        font-size: 0.5rem;
       }
     }
   }
 }
 @media (min-width: 576px) {
   .cardflip {
-    .frontcard {
-      .card-title {
-        font-size: 2rem;
-      }
-    }
     .backcard {
-      .card-body {
-        padding: 1.25rem;
-        .card-text {
+      .card {
+        &-body {
+          padding: 1.25rem;
+        }
+        &-text {
           padding: 0.6rem;
-          font-size: 1.2rem;
+          font-size: 1rem;
           line-height: 2rem;
+        }
+        &-title {
+          font-size: 1rem;
         }
       }
     }
@@ -166,25 +178,25 @@ export default {
 @media (min-width: 768px) {
   .cardflip {
     width: 40rem;
-    .frontcard {
-      .card-title {
-        font-size: 3rem;
-      }
-    }
     .backcard {
-      .card-body {
-        justify-content: space-around;
-        .card-text {
+      .card {
+        &-body {
+          justify-content: space-around;
+        }
+        &-text {
           padding: 0.8rem;
-          font-size: 1.4rem;
+          font-size: 1.2rem;
           line-height: 2.1rem;
-          &-date {
-            margin-bottom: 1.5rem;
-          }
           &-content {
             margin: 0;
           }
         }
+        &-title {
+        font-size: 2rem;
+        }
+      }
+      .btn {
+        font-size: 1rem;
       }
     }
   }
