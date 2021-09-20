@@ -65,33 +65,6 @@
             </b-alert>
           </b-form-group>
         </ValidationProvider>
-        <ValidationProvider
-          ref="level"
-          rules="required|numeric"
-          name="Niveau"
-          v-slot="{ errors }"
-        >
-          <b-form-group id="level" class="mb-5">
-            <label
-              v-if="oneSoftware.id"
-              for="input-level"
-              class="text-uppercase"
-              >Nouveau niveau du logiciel</label
-            >
-            <label v-else for="input-level" class="text-uppercase"
-              >Niveau du logiciel</label
-            >
-            <b-form-input
-              type="number"
-              id="input-level"
-              v-model="software.level"
-              placeholder="0"
-            >
-            </b-form-input>
-            <b-alert variant="danger" v-if="errors[0]" v-text="errors[0]" show>
-            </b-alert>
-          </b-form-group>
-        </ValidationProvider>
         <div v-if="!oneSoftware.id || oldIcon">
           <h5
             v-show="!software.icon && oldIcon"
@@ -242,7 +215,6 @@ export default {
       software: {
         name: "",
         icon: null,
-        level: "",
         category: null
       },
       oldIcon: "",
@@ -378,7 +350,6 @@ export default {
       this.loading = false;
       this.software.name = "";
       this.software.icon = null;
-      this.software.level = "";
       this.oldIcon = "";
       this.currentName = "";
     },
@@ -396,7 +367,6 @@ export default {
     this.selected = null;
     if (this.methodAction == "update") {
       this.software.name = this.oneSoftware.name;
-      this.software.level = this.oneSoftware.level;
       this.currentName = this.oneSoftware.name;
       this.oldIcon = this.oneSoftware.icon;
       this.software.icon = null;

@@ -91,7 +91,7 @@ export default {
     height: unset;
     z-index: 31;
     .cardflip {
-      animation: slide-in-blurred-right 0.8s cubic-bezier(0.23, 1, 0.32, 1) both;
+      animation: slide-in-blurred-right 0.8s cubic-bezier(0.23, 1, 0.32, 1) 0.8s both;
       &:nth-child(1) {
         animation-delay: 0.8s;
       }

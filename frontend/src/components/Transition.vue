@@ -3,9 +3,9 @@
     <div class="slider-green">
       <div class="slider-purple" :style="{'--color-slide-one': colorSlideOne}"></div>
     </div>
-    <div class="slider-green">
+    <!-- <div class="slider-green">
       <div class="slider-purple" :style="{'--color-slide-one': colorSlideOne}"></div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -33,7 +33,7 @@ export default {
   &-purple {
     background: var(--color-slide-one);
     position: fixed;
-    width: 100%;
+    width: 110%;
     height: 100%;
     z-index: 255;
   }
@@ -49,7 +49,7 @@ export default {
   @keyframes slideUpGreen {
     from {
       transform: translateY(0%);
-      filter: blur(15px);
+      filter: blur(10px);
     }
     to {
       transform: translateY(-110%);
@@ -60,7 +60,7 @@ export default {
     from {
       transform: translateY(100%);
       height: 100%;
-      filter: blur(15px);
+      filter: blur(2px);
     }
     to {
       transform: translateY(-110%);
@@ -81,7 +81,7 @@ export default {
     @keyframes slideRightGreen {
       from {
         transform: translateX(0%);
-        filter: blur(15px);
+        filter: blur(10px);
       }
       to {
         transform: translateX(-110%);
@@ -91,7 +91,7 @@ export default {
     @keyframes slideRightPurple {
       from {
         transform: translateX(100%);
-        filter: blur(15px);
+        filter: blur(2px);
       }
       to {
         transform: translateX(-110%);
@@ -112,7 +112,7 @@ export default {
     @keyframes slideLeftGreen {
       from {
         transform: translateX(0%);
-        filter: blur(15px);
+        filter: blur(10px);
       }
       to {
         transform: translateX(110%);
@@ -122,7 +122,7 @@ export default {
     @keyframes slideLeftPurple {
       from {
         transform: translateX(-110%);
-        filter: blur(15px);
+        filter: blur(2px);
       }
       to {
         transform: translateX(100%);
@@ -142,7 +142,7 @@ export default {
   @keyframes slideDownGreen {
     from {
       transform: translateY(0%);
-      filter: blur(15px);
+      filter: blur(10px);
     }
     to {
       transform: translateY(110%);
@@ -153,7 +153,7 @@ export default {
     from {
       transform: translateY(-100%);
       height: 100%;
-      filter: blur(15px);
+      filter: blur(2px);
     }
     to {
       transform: translateY(110%);

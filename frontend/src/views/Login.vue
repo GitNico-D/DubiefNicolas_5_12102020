@@ -1,7 +1,7 @@
 <template>
   <b-container fluid>
-    <BackgroundPage circleColor="#fff" />
-    <Transition v-show="showTransition" directionAnimation="down" />
+    <CircleBackground circleColor="#fff"/>
+    <Transition v-show="showTransition" directionAnimation="down" colorSlideOne="#1e1e1e"/>
     <b-row class="justify-content-center align-items-center">
       <b-card title="Connexion"
         ><font-awesome-icon icon="user-shield" size="4x" class="my-3" />
@@ -98,9 +98,9 @@
 </template>
 
 <script>
-import BackgroundPage from "@/components/BackgroundPage.vue";
 import Transition from "@/components/Transition.vue";
 import HomePageLink from "@/components/HomePageLink.vue";
+import CircleBackground from '@/components/CircleBackground.vue'
 import { ValidationProvider, ValidationObserver } from "vee-validate";
 import { mapActions } from "vuex";
 import errorRedirection from "../services/errorRedirection";
@@ -108,11 +108,11 @@ import errorRedirection from "../services/errorRedirection";
 export default {
   name: "Login",
   components: {
-    BackgroundPage,
     ValidationProvider,
     ValidationObserver,
     HomePageLink,
-    Transition
+    Transition,
+    CircleBackground
   },
   data() {
     return {
@@ -183,6 +183,7 @@ export default {
   perspective: 1000px;
   position: relative;
   min-height: 100vh;
+  overflow: hidden;
 }
 .card {
   border: 1px solid $white;
