@@ -1,23 +1,17 @@
 <template>
-  <b-row>
-    <b-navbar toggleable="sm">
-      <b-navbar-toggle
-        target="nav-collapse"
-        :style="{ '--color': color }"
-      ></b-navbar-toggle>
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav class="py-3" :style="{ '--color': color }">
+
+  <b-row class="justify-content-center flex-column align-items-center">
+    <MenuIcon :color="color"/>
+    <OnePageMenu :color="color">
+      <b-navbar :style="{ '--color': color }" toggleable="sm" class="navpage-content ">
+        <b-navbar-nav class="py-3 flex-column justify-content-center" :style="{ '--color': color }">
           <router-link to="/" v-b-popover.hover.leftbottom="'Accueil'">
-            <font-awesome-icon icon="home" /> </router-link
-          ><span class="px-3" :style="{ '--color': color }"> | </span>
-          <router-link to="/presentation">Présentation</router-link
-          ><span class="px-3" :style="{ '--color': color }"> | </span>
-          <router-link to="/projects">Projets</router-link
-          ><span class="px-3" :style="{ '--color': color }"> | </span>
-          <router-link to="/skills">Compétences</router-link
-          ><span class="px-3" :style="{ '--color': color }"> | </span>
-          <router-link to="/career">Carrières</router-link
-          ><span class="px-3" :style="{ '--color': color }"> | </span>
+            <font-awesome-icon icon="home" />
+          </router-link>
+          <router-link to="/presentation">Présentation</router-link>
+          <router-link to="/projects">Projets</router-link>
+          <router-link to="/skills">Compétences</router-link>
+          <router-link to="/career">Carrières</router-link>
           <b-link
             v-if="loggedIn"
             to="/admin"
@@ -31,8 +25,8 @@
             v-if="!loggedIn"
             v-b-popover.hover.bottom="'Connexion'"
           >
-            <font-awesome-icon icon="sign-out-alt" /> </router-link
-          ><span class="px-3" :style="{ '--color': color }"> | </span>
+            <font-awesome-icon icon="sign-out-alt" /> 
+          </router-link>
           <b-link
             to=""
             v-if="loggedIn"
@@ -41,19 +35,32 @@
           >
             <font-awesome-icon icon="sign-in-alt" />
           </b-link>
-        </b-navbar-nav>
-      </b-collapse>
-    </b-navbar>
-    <h1 :style="{ '--color': color }" class="mt-3">{{ title }}</h1>
+        </b-navbar-nav>    
+      </b-navbar>
+    </OnePageMenu>
+    <h1 :style="{ '--color': color }">{{ title }}</h1>    
   </b-row>
+
 </template>
 
 <script>
+import OnePageMenu from './OnePageMenu.vue'
+import MenuIcon from './MenuIcon.vue'
+
 export default {
   name: "Header",
+  components: {
+    OnePageMenu,
+    MenuIcon
+  },
   props: {
     color: String,
     title: String
+  },
+  data() {
+    return {
+      isActive: false
+    }
   },
   methods: {
     logOut() {
@@ -62,6 +69,9 @@ export default {
     },
     reloadPage() {
       document.location.reload(true);
+    },
+    showMenu() {
+      this.isActive = !this.isActive;
     }
   },
   computed: {
@@ -78,15 +88,20 @@ export default {
     width: 100%;
     &-nav {
       margin: auto;
+      z-index: 2;
       a {
         position: relative;
         font-family: "Oswald", sans-serif;
         color: $white;
         text-transform: uppercase;
-        font-size: 0.9rem;
+        font-size: 3rem;
         transition: ease-out 0.2s;
-        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1)
-          1.3s both;
+        animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s both;
+        @for $i from 0 through 6 {
+          &:nth-child(#{$i}) {
+            animation-delay: $i * 0.2s;
+          }
+        }
         &::after {
           position: absolute;
           content: " ";
@@ -116,13 +131,7 @@ export default {
       span {
         color: var(--color);
         font-weight: bold;
-        animation: swirl-in-fwd 0.8s ease-out 1.6s both;
       }
-    }
-    button {
-      color: $white;
-      background-color: var(--color);
-      border: 1px solid var(--color) !important;
     }
   }
   h1 {
@@ -132,6 +141,55 @@ export default {
     text-transform: uppercase;
     animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) 1s
       both;
+  }
+  .menu {
+    &-icon {
+      width: 2rem;
+      height: 2rem;
+      background-color: transparent;
+      border: 1px solid $green;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s ease-in-out;
+      @include box_shadow;
+      &:hover, &:active {
+        border-radius: 50%;
+        background-color: $green;
+        @include box_shadow;
+        .menu {
+          &-line {
+            &-top {
+              @include box_shadow;
+              border: 1px solid $green;
+              transform: translate(-100%, -50%);
+            }
+            &-bottom {
+              @include box_shadow;
+              border: 1px solid $green;
+              transform: translate(0%, 50%);
+            }
+          }
+        }
+      }
+    }
+    &-line {
+      &-top {
+        transition: all 0.3s ease-in-out;
+        position: absolute;
+        top: 0;
+        transform: translate(-50%, -50%);
+        border: 1px solid transparent;
+        width: 100%;
+      }
+      &-bottom {
+        transition: all 0.3s ease-in-out;
+        position: absolute;
+        bottom: 0;
+        transform: translate(-50%, 50%);
+        border: 1px solid transparent;
+        width: 100%;
+      }
+    }
   }
   @keyframes tracking-in-expand {
     0% {
@@ -145,13 +203,15 @@ export default {
       opacity: 1;
     }
   }
-  @keyframes swirl-in-fwd {
+  @keyframes slide-in-bottom {
     0% {
-      transform: rotate(-540deg) scale(0);
-      opacity: 0;
+      -webkit-transform: translateY(1000px);
+              transform: translateY(1000px);
+        opacity: 0;
     }
     100% {
-      transform: rotate(0) scale(1);
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
       opacity: 1;
     }
   }
@@ -163,17 +223,10 @@ export default {
       letter-spacing: 0.2rem!important;
     }
     .navbar {
-      padding: unset;
-      button {  
-        margin: auto !important;
-        margin-top: 1rem !important;
-      }
       &-nav {
         a {
-          margin-bottom: 0.5rem;
-        }
-        span {
-          display: none;
+          margin-bottom: 1rem;
+          font-size: 2.5rem;
         }
       }
     }
@@ -201,8 +254,9 @@ export default {
       font-size: 2.8rem !important;
     }
     .navbar {
-      &-nav {
-        padding: 1.5rem;
+      a {
+        margin-bottom: 2rem;
+        font-size: 3rem;
       }
     }
   }
