@@ -93,30 +93,6 @@
             </b-alert>
           </b-form-group>
         </ValidationProvider>
-        <ValidationProvider
-          ref="level"
-          rules="required|numeric"
-          name="Niveau de compétence"
-          v-slot="{ errors }"
-        >
-          <b-form-group id="level" class="mb-5">
-            <label v-if="oneSkill.id" for="input-level" class="text-uppercase"
-              >Nouveau niveau de la compétence</label
-            >
-            <label v-else for="input-level" class="text-uppercase"
-              >Niveau de compétence</label
-            >
-            <b-form-input
-              type="number"
-              id="input-level"
-              v-model="skill.level"
-              placeholder="0"
-            >
-            </b-form-input>
-            <b-alert variant="danger" v-if="errors[0]" v-text="errors[0]" show>
-            </b-alert>
-          </b-form-group>
-        </ValidationProvider>
         <div v-if="!oneSkill.id || oldIcon">
           <h5 v-show="!skill.icon && oldIcon" class="text-left text-uppercase">
             Icone de la compétence
@@ -256,7 +232,6 @@ export default {
         name: "",
         description: "",
         icon: null,
-        level: "",
         category: null
       },
       oldIcon: "",
@@ -390,7 +365,6 @@ export default {
       this.skill.name = "";
       this.skill.description = "";
       this.skill.icon = null;
-      this.skill.level = "";
       this.oldIcon = "";
       this.previewIconUrl = "";
     },
@@ -409,7 +383,6 @@ export default {
     if (this.methodAction == "update") {
       this.skill.name = this.oneSkill.name;
       this.skill.description = this.oneSkill.description;
-      this.skill.level = this.oneSkill.level;
       this.currentName = this.oneSkill.name;
       this.oldIcon = this.oneSkill.icon;
       this.skill.icon = null;
