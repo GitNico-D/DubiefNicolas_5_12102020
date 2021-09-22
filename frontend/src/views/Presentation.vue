@@ -16,21 +16,24 @@
           </b-card-title>
           <hr />
           <b-card-text>
-            {{ onePresentation.quote }}
+            <p class="my-5 mx-3">{{ onePresentation.quote }}</p>
             <div class="d-flex flex-wrap justify-content-around my-4">
-              <ContactButton
+              <b-link
                 v-for="(contact, index) in onePresentation.contacts"
                 :key="contact.id"
-                :name="contact.title"
-                :href="contact.link"
-                :logoIcon="contact.icon"
-                :colorOne="
-                  index % 2 ? (colorOne = '#485DA6') : (colorOne = '#FF9C66')
-                "
-                :colorTwo="
-                  index % 2 ? (colorOne = '#FF9C66') : (colorTwo = '#485DA6')
-                "
-              />
+                :href="(contact.title == 'Mail') ? ('mailto:' + contact.link) : (contact.link)"
+                :style="[index % 2 ? (buttonStyleOne) : (buttonStyleTwo), {'--url-icon': 'url(' + contact.icon + ')'}]"
+                class="btn m-1 p-2"
+                >
+                {{ contact.title }}
+              </b-link>
+              <b-link 
+                href="http://portfolio/img/cv/cv.pdf" 
+                class="btn m-1 p-2"
+                :style="buttonStyleOne"
+                >
+                CV
+              </b-link>
             </div>
           </b-card-text>
         </b-card>
@@ -78,7 +81,6 @@
 import Header from "@/components/Header.vue";
 import HomePageLink from "@/components/HomePageLink.vue";
 import Transition from "@/components/Transition.vue";
-import ContactButton from "@/components/ContactButton.vue";
 import CircleBackground from '@/components/CircleBackground.vue'
 import { mapGetters, mapActions } from "vuex";
 
@@ -87,12 +89,20 @@ export default {
     Header,
     HomePageLink,
     Transition,
-    ContactButton,
     CircleBackground
   },
   data() {
     return {
       showTransition: true,
+      logoIcon: String,
+      buttonStyleOne: {
+        '--color-one': '#485DA6', 
+        '--color-two': '#FF9C66',
+      },
+      buttonStyleTwo: {
+        '--color-one': '#FF9C66', 
+        '--color-two': '#485DA6'
+      }
     }
   },
   computed: {
@@ -125,6 +135,37 @@ export default {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
+}
+.btn {
+  color: $white;
+  background-color: var(--color-one);
+  border: 2px solid var(--color-one);
+  transition: transform 0.2s ease;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    transition: transform 0.2s ease;
+    transform: rotate(0deg);
+  }
+  &:hover {
+    color: var(--color-two);
+    background-color: var(--color-one);
+    box-shadow: 0 0 10px var(--color-two);
+    transform: scale(1.2);
+    transition: transform 0.2s ease;
+    &:before {
+      content: "";
+      transition: transform 0.2s ease;
+      position: absolute;
+      background: var(--url-icon) no-repeat;
+      top: -30%;
+      left: 55%;
+      transform: rotate(12deg) scale(1.2);
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 .presentation {
   padding-top: 8rem;

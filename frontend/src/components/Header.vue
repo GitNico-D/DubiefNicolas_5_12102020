@@ -97,7 +97,7 @@ export default {
         font-size: 3rem;
         transition: ease-out 0.2s;
         animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s both;
-        @for $i from 0 through 6 {
+        @for $i from 0 through 7 {
           &:nth-child(#{$i}) {
             animation-delay: $i * 0.2s;
           }
