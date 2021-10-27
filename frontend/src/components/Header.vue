@@ -83,6 +83,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.col {
+  padding: 0;
+}
 .row {
   .navbar {
     width: 100%;
@@ -226,7 +229,7 @@ export default {
       &-nav {
         a {
           margin-bottom: 1rem;
-          font-size: 2.5rem;
+          font-size: 1.5rem;
         }
       }
     }

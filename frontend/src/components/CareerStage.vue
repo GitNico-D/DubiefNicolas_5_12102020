@@ -9,7 +9,7 @@
       <b-card :title="title" :style="{ '--color': color }" class="border-0">
         <b-card-text>
           <h4 class="mt-4 font-weight-bold text-uppercase">{{ company }}</h4>
-          <p class="mt-4 p-3 text-justify">{{ description }}</p>
+          <p class="mt-4 p-3 text-justify"><span v-html="description"></span></p>
         </b-card-text>
       </b-card>
     </b-col>
@@ -51,6 +51,9 @@ export default {
 .row {
   width: 90%;
 }
+.col-12 {
+  padding: 2rem;
+}
 h2 {
   font-family: "MontSerrat", sans-serif;
   font-weight: 600;
@@ -64,6 +67,9 @@ h2 {
 .card {
   font-family: "Oswald", sans-serif;
   background-color: transparent;
+  &-body {
+    padding: 0.75rem;
+  }
   &-title {
     font-family: "MontSerrat", sans-serif;
     color: $white;
@@ -80,7 +86,7 @@ h2 {
     background-color: $white;
     z-index: -1;
     width: 100%;
-    height: 100%;
+    height: 95%;
     @include box_shadow(0px, 0px, 10px, var(--color));
   }
   &:after {
@@ -88,7 +94,7 @@ h2 {
     position: absolute;
     background-color: var(--color);
     width: 100%;
-    height: 100%;
+    height: 95%;
     z-index: -1;
     left: 2%;
     bottom: 5%;
@@ -121,15 +127,15 @@ h2 {
       }
     }
     &:after {
-      transition: transform 0.3s ease;
+      transition: transform 0.4s ease;
       transform: rotateZ(4deg);
     }
     &:before {
-      transition: transform 0.3s ease;
+      transition: transform 0.4s ease;
       transform: rotateZ(-5deg);
     }
     &-body {
-      transition: transform 0.3s ease;
+      transition: transform 0.4s ease;
       transform: rotateZ(4deg);
     }
     &-title {
@@ -146,10 +152,12 @@ h2 {
         left: 0;
         bottom: 0;
         transform: rotateZ(0deg);
+        height: 100%;
       }
       &:before {
         transition: all 0.4s ease;
         transform: rotateZ(0deg);
+        height: 100%;
       }
       &-body {
         transition: all 0.4s ease;
@@ -173,18 +181,18 @@ h2 {
   margin: 3rem auto 6rem auto;
   .card {
     animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s both;
-
     &:before {
-      transition: transform 0.3s ease;
+      transition: transform 0.4s ease;
       transform: rotateZ(5deg);
     }
     &:after {
-      transition: transform 0.3s ease;
+      transition: transform 0.4s ease;
       transform: rotateZ(-4deg);
     }
     &-body {
-      transition: transform 0.3s ease;
+      transition: transform 0.4s ease;
       transform: rotateZ(-4deg);
+      margin-left: .75rem;
     }
     &-text {
       h4 {
@@ -192,7 +200,7 @@ h2 {
       }
     }
     &-title {
-      transition: transform 0.3s ease;
+      transition: transform 0.4s ease;
       color: $white;
       border: 2px solid $white;
     }
@@ -201,25 +209,27 @@ h2 {
     cursor: default;
     .card {
       &:after {
-        transition: all 0.2s ease;
+        transition: all 0.4s ease;
         box-shadow: -5px 7px 2px $white;
         left: 0;
         bottom: 0;
         transform: rotateZ(0deg);
+        height: 100%;
       }
       &:before {
-        transition: all 0.2s ease;
+        transition: all 0.4s ease;
         transform: rotateZ(0deg);
+        height: 100%;
       }
       &-title {
         border: none;
-        transition: all 0.2s ease;
+        transition: all 0.4s ease;
         color: $white;
         background-color: var(--color);
         box-shadow: -5px 7px 2px $white, 0px 0px 15px var(--color);
       }
       &-body {
-        transition: all 0.2s ease;
+        transition: all 0.4s ease;
         transform: rotateZ(0deg);
       }
     }
@@ -263,7 +273,7 @@ h2 {
 
 @media (min-width: 320px) {
   .col-12 {
-    padding: unset;
+    padding: 1rem;
   }
   .even,
   .odd {
@@ -300,7 +310,7 @@ h2 {
 @media (min-width: 576px) {
   .even,
   .odd {
-    width: 90%;
+    width: 100%;
   }
   .odd {
     .card {
@@ -336,7 +346,7 @@ h2 {
 }
 @media (min-width: 768px) {
   .col-12 {
-    padding: 1.5rem;
+    padding: 2rem;
   }
   .odd,
   .even {
@@ -401,6 +411,9 @@ h2 {
       font-size: 3rem;
     }
     .card {
+      &-body {
+        font-size: 1.1rem;
+      }
       &-title {
         width: 60%;
         font-size: 1.3rem;

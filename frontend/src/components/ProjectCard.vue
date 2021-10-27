@@ -11,7 +11,7 @@
     <b-card class="backcard">
       <b-card-text>
         <p class="card-title text-center">{{ title }}</p>
-        <p class="card-text-content">{{ content }}</p>
+        <p class="card-text-content"><span v-html="content"></span></p>
       </b-card-text>
       <b-link :href="url" class="btn">Vers le site</b-link>
     </b-card>

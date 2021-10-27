@@ -86,10 +86,6 @@ export default {
 .footer {
   height: 15vh;
 }
-.even,
-.odd {
-  margin-bottom: 8rem;
-}
 .header {
   padding-bottom: 5rem;
 }
@@ -131,11 +127,20 @@ export default {
   .container-fluid {
     .line {
       display: initial;
-      height: 75%;
-      top: 12%;
+      height: 82%;
+      top: 8%;
     }
     .link {
       transform: rotate(90deg) scale(0.8);
+    }
+  }
+}
+@media (min-width: 992px) {
+  .container-fluid {
+    .line {
+      display: initial;
+      height: 78%;
+      top: 10%;
     }
   }
 }

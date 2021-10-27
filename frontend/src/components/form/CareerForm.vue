@@ -27,7 +27,7 @@
     </div>
     <div v-else>
       <h2 id="modifyForm-title" class="text-center fw-bold my-5 career-form-title">
-        Modification du CareerStage
+        Modification de l'étape de carrière
         <p class="my-2">
           <span class="font-weight-bold font-style-italic"
             >"{{ currentName }}"</span

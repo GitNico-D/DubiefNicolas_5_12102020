@@ -33,7 +33,7 @@
         <div
           v-show="current == categories.id"
           class="software-block justify-content-around align-items-center flex-wrap">
-          <h4 class="software-title text-center mb-5">Logiciel associées</h4>
+          <h4 class="software-title text-center mb-5">Logiciels associés</h4>
           <figure class="figure" 
             v-for="software in categories.softwares"
             :key="software.id">
