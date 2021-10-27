@@ -165,18 +165,6 @@ export default {
           transform: translate3d(0px, 0px, 100px);
         }
       }
-      .btn {
-        margin: 2rem 0 0 20rem;
-        color: $green !important;
-        background-color: transparent !important;
-        border: 2px solid $green !important;
-        animation: slideBtn 1.25s ease-in-out 0.5s;
-        &:hover {
-          color: $white !important;
-          background-color: $green !important;
-          box-shadow: 0 0 10px $white !important;
-        }
-      }
     }
   }
   .btn {
@@ -262,7 +250,7 @@ export default {
   position: absolute;
   width: 100%;
   border-radius: 100%;
-  animation: circles 9.5s linear infinite;
+  animation: circles 9.5s linear infinite -2s;
   &-blue {
     background-color: $light-blue;
     width: 10vw;
@@ -364,7 +352,7 @@ export default {
   }
   .link {
     position: absolute;
-    animation: 1.5s ease-in-out opacityIn;
+    animation: 2s ease-in-out opacityIn;
     &-left {
       transform: translateX(-20%) scale(0.5);
       left: 0;

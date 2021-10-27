@@ -4,7 +4,7 @@
     <CircleBackground circleColor="#00a1ba"/>
     <Transition v-show="showTransition" directionAnimation="down" colorSlideOne="#00a1ba"/>
     <CareerStage
-      v-for="(careerStage, index) in allCareerStages"
+      v-for="(careerStage, index) in allCareerStages.slice().reverse()"
       :key="careerStage.id"
       :title="careerStage.name"
       :description="careerStage.description"
@@ -86,10 +86,6 @@ export default {
 .footer {
   height: 15vh;
 }
-.even,
-.odd {
-  margin-bottom: 8rem;
-}
 .header {
   padding-bottom: 5rem;
 }
@@ -99,6 +95,7 @@ export default {
   width: 3px;
   left: 50%;
   top: 14%;
+  margin: 0.2rem;
   background-color: $white;
   transform: translateZ(-10px);
   animation: scale-up-ver-top 2s cubic-bezier(0.39, 0.575, 0.565, 1) 0.5s both;
@@ -130,11 +127,20 @@ export default {
   .container-fluid {
     .line {
       display: initial;
-      height: 75%;
-      top: 12%;
+      height: 82%;
+      top: 8%;
     }
     .link {
       transform: rotate(90deg) scale(0.8);
+    }
+  }
+}
+@media (min-width: 992px) {
+  .container-fluid {
+    .line {
+      display: initial;
+      height: 78%;
+      top: 10%;
     }
   }
 }
