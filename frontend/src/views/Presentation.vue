@@ -3,9 +3,7 @@
     <Header title="Presentation" color="#485DA6"/>
     <CircleBackground circleColor="#485DA6"/>
     <Transition v-show="showTransition" directionAnimation="left" colorSlideOne="#485DA6"/>
-    <b-row
-      class="presentation justify-content-center"
-    >
+    <b-row class="presentation justify-content-center">
       <b-col cols="10" md="5" xl="3">
         <b-card :img-src="onePresentation.picture" img-top>
           <b-card-title class="text-uppercase">
@@ -15,7 +13,7 @@
             </p>
           </b-card-title>
           <b-card-text>
-            <p class="my-5 mx-3">{{ onePresentation.quote }}</p>
+            <hr class="my-5 card-separator">
             <div class="d-flex flex-wrap justify-content-around my-4">
               <b-link
                 v-for="(contact, index) in onePresentation.contacts"
@@ -29,7 +27,7 @@
               <b-link 
                 href="http://portfolio/img/cv/cv.pdf" 
                 class="btn m-1 p-2"
-                :style="buttonStyleOne"
+                :style="[buttonStyleOne, {'--url-icon': 'url(http://portfolio/img/cv/pdf.png)'}]"
                 >
                 CV
               </b-link>
@@ -180,7 +178,7 @@ export default {
   }
 }
 .presentation {
-  padding-top: 8rem;
+  padding-top: 10rem;
   height: unset;
   .card {
     animation: text-focus-in 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) 1s both;
@@ -215,34 +213,30 @@ export default {
       @include box_shadow(0px, 0px, 15px, $blue);
       filter: none;
     }
+    &-separator {
+      background: $orange;
+      @include box_shadow(0px, 0px, 5px, $orange);
+      width: 60%;
+    }
   }
   &-text {
     color: $white;
-    font-family: "Oswald", sans-serif;
-    font-size: 1.1rem;
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.6rem;
     h5 {
       animation: text-focus-in 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) 1s
         both;
     }
-    &-first {
+    &-first, &-third {
       border-right: 1px solid $orange;
       padding: 1rem;
-      margin: 2.5rem 5rem 2.5rem 0;
       animation: slide-in-blurred-right 0.6s cubic-bezier(0.23, 1, 0.32, 1) 1s
         both;
     }
     &-second {
       border-left: 1px solid $orange;
       padding: 1rem;
-      margin: 2.5rem 0 2.5rem 5rem;
       animation: slide-in-blurred-left 0.6s cubic-bezier(0.23, 1, 0.32, 1) 1.3s
-        both;
-    }
-    &-third {
-      border-right: 1px solid $orange;
-      padding: 1rem;
-      margin: 2.5rem 5rem 5rem 0;
-      animation: slide-in-blurred-right 0.6s cubic-bezier(0.23, 1, 0.32, 1) 1.5s
         both;
     }
     &-separator {
@@ -329,7 +323,7 @@ export default {
         width: 60%;
       }
       &-title {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
       }
       &-border-back {
         height: 100%;
@@ -337,6 +331,13 @@ export default {
     }
     &-text {
       padding-top: 3rem;
+      font-size: 0.8rem;
+      &-first, &-third {
+        margin: 2.5rem 0rem 1.5rem 0;
+      }
+      &-second {
+        margin: 2.5rem 0 1.5rem 0rem;
+      }
     }
   }
   .footer {
@@ -358,6 +359,7 @@ export default {
     }
     &-text {
       padding-left: 1.5rem;
+      
     }
   }
 }
@@ -367,19 +369,31 @@ export default {
       transform: perspective(1000px) rotateX(0deg) rotateY(10deg);
       &-title {
         font-size: 2rem;
-        padding-top: unset;
+        padding-top: 1.5rem;
       }
       &-border-back {
         height: 36%;
       }
     }
+    &-text {
+      font-size: 0.8rem;
+    }
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .presentation {
     .card {
       &-title {
         padding-top: 1.5rem;
+      }
+    }
+    &-text {
+      font-size: 0.9rem;
+      &-first, &-third {
+        margin: 2.5rem 3rem 1.5rem 0;
+      }
+      &-second {
+        margin: 2.5rem 0 1.5rem 3rem;
       }
     }
   }
@@ -401,6 +415,9 @@ export default {
       &-border-back {
         height: 50%;
       }
+    }
+    &-text {
+      font-size: 1.1rem;
     }
   }
 }

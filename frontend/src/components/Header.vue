@@ -1,11 +1,10 @@
 <template>
-
   <b-row class="justify-content-center flex-column align-items-center">
     <MenuIcon :color="color"/>
     <OnePageMenu :color="color">
       <b-navbar :style="{ '--color': color }" toggleable="sm" class="navpage-content ">
         <b-navbar-nav class="py-3 flex-column justify-content-center" :style="{ '--color': color }">
-          <router-link to="/" v-b-popover.hover.leftbottom="'Accueil'">
+          <router-link to="/">
             <font-awesome-icon icon="home" />
           </router-link>
           <router-link to="/presentation">Présentation</router-link>
@@ -31,14 +30,13 @@
             to=""
             v-if="loggedIn"
             @click.prevent="logOut"
-            v-b-popover.hover.bottom="'Déconnexion'"
           >
             <font-awesome-icon icon="sign-in-alt" />
           </b-link>
         </b-navbar-nav>    
       </b-navbar>
     </OnePageMenu>
-    <h1 :style="{ '--color': color }">{{ title }}</h1>    
+    <h1 :style="{ '--color': color }" class="my-4">{{ title }}</h1>    
   </b-row>
 
 </template>
@@ -252,7 +250,6 @@ export default {
 }
 @media (min-width: 768px) {
   .row {
-    height: 25vh;
     h1 {
       font-size: 2.8rem !important;
     }
