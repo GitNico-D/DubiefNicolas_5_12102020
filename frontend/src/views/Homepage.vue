@@ -255,7 +255,7 @@ export default {
     background-color: $light-blue;
     width: 10vw;
     height: 10vw;
-    top: 44%;
+    top: 75%;
     left: 50%;
     transform-style: preserve-3d;
     animation-duration: 15s;
@@ -277,11 +277,11 @@ export default {
     border: 25px solid $green;
     width: 15vw;
     height: 15vw;
-    top: 10%;
+    top: 55%;
     right: 5%;
     transform-style: preserve-3d;
     @include box_shadow(0px, 0px, 50px);
-    animation-duration: 30s;
+    animation-duration: 25s;
     filter: blur(10px);
   }
   &-littleGreen {
@@ -301,15 +301,15 @@ export default {
     left: 20%;
     z-index: 30;
     transform-style: preserve-3d;
-    animation-duration: 10s;
+    animation-duration: 8s;
     filter: blur(3px);
   }
   &-green2 {
     background-color: $white;
     width: 3vw;
     height: 3vw;
-    top: 25%;
-    left: 40%;
+    top: 30%;
+    left: 37%;
     @include box_shadow(0px, 0px, 50px, $white);
   }
   &-blue2 {

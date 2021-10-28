@@ -86,9 +86,6 @@ export default {
 .footer {
   height: 15vh;
 }
-.header {
-  padding-bottom: 5rem;
-}
 .line {
   position: absolute;
   height: 70%;
@@ -128,7 +125,7 @@ export default {
     .line {
       display: initial;
       height: 82%;
-      top: 8%;
+      top: 9%;
     }
     .link {
       transform: rotate(90deg) scale(0.8);
@@ -140,7 +137,16 @@ export default {
     .line {
       display: initial;
       height: 78%;
-      top: 10%;
+      top: 11%;
+    }
+  }
+}
+@media (min-width: 1200px) {
+  .container-fluid {
+    .line {
+      display: initial;
+      height: 77%;
+      top: 11%;
     }
   }
 }

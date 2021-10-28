@@ -8,7 +8,7 @@
     <b-col cols="12" md="6">
       <b-card :title="title" :style="{ '--color': color }" class="border-0">
         <b-card-text>
-          <h4 class="mt-4 font-weight-bold text-uppercase">{{ company }}</h4>
+          <h3 class="mt-4 font-weight-bold text-uppercase">{{ company }}</h3>
           <p class="mt-4 p-3 text-justify"><span v-html="description"></span></p>
         </b-card-text>
       </b-card>
@@ -101,7 +101,7 @@ h2 {
     @include box-shadow(0px, 0px, 10px, var(--color));
   }
   &-text {
-    h4 {
+    h3 {
       color: $white;
     }
     p {
@@ -117,12 +117,12 @@ h2 {
   color: $white;
 }
 .odd {
-  margin: 3rem auto 6rem auto;
+  // margin: 4rem auto 6rem auto;
   transition: all 0.5s ease;
   .card {
     animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s both;
     &-text {
-      h4 {
+      h3 {
         text-align: right;
       }
     }
@@ -195,7 +195,7 @@ h2 {
       margin-left: .75rem;
     }
     &-text {
-      h4 {
+      h3 {
         text-align: left;
       }
     }
@@ -279,6 +279,7 @@ h2 {
   .odd {
     flex-direction: column-reverse;
     width: 85%;
+    margin: 1rem auto 0rem auto;
     h2 {
       font-size: 1.5rem;
       margin-bottom: 2rem;
@@ -286,6 +287,13 @@ h2 {
     .card {
       &-title {
         font-size: 1rem;
+      }
+      h3 {
+        font-size: 0.9rem;
+      }
+      p {
+        margin-top: 0!important;
+        font-size: 0.7rem;
       }
     }
     &:hover {
@@ -308,10 +316,6 @@ h2 {
   }
 }
 @media (min-width: 576px) {
-  .even,
-  .odd {
-    width: 100%;
-  }
   .odd {
     .card {
       &-title {
@@ -351,6 +355,7 @@ h2 {
   .odd,
   .even {
     width: 90%;
+    margin: 5rem auto 2rem auto;
     &:hover {
       h2 {
         font-size: 3rem;
@@ -362,6 +367,13 @@ h2 {
         width: 90%;
         margin: auto;
         font-size: 1rem;
+      }
+      h3 {
+        font-size: 1.1rem;
+      }
+      p {
+        margin-top: 1rem!important;
+        font-size: 0.9rem;
       }
     }
   }
@@ -407,6 +419,7 @@ h2 {
 @media (min-width: 992px) {
   .odd,
   .even {
+    
     h2 {
       font-size: 3rem;
     }
@@ -416,15 +429,40 @@ h2 {
       }
       &-title {
         width: 60%;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
       }
-    }
+      h3 {
+      font-size: 1.05rem;
+      }
+      p {
+        margin-top: 1rem!important;
+        font-size: 0.9rem;
+      }
+    }    
     &:hover {
       h2 {
         font-size: 3.25rem;
         color: $light-blue;
       }
     }
+  }
+}
+@media (min-width: 1200px) {
+  .odd,
+  .even {
+    .card {
+      &-title {
+        width: 60%;
+        font-size: 1.4rem;
+      }
+      h3 {
+      font-size: 1.5rem;
+      }
+      p {
+        margin-top: 1rem!important;
+        font-size: 1rem;
+      }
+    }    
   }
 }
 </style>
