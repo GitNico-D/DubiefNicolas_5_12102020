@@ -355,18 +355,18 @@ export default {
     animation: 2s ease-in-out opacityIn;
     &-left {
       transform: translateX(-20%) scale(0.5);
-      left: 0;
+      left: 1%;
       top: 2%;
     }
     &-right {
       transform: translateX(20%) scale(0.5);
-      right: 0;
+      right: 2%;
       bottom: 2%;
     }
     &-top {
       transform-style: preserve-3d;
       transform: translateX(40%) rotateZ(-90deg) scale(0.5);
-      right: 0;
+      right: 1%;
       top: 12%;
     }
     &-bottom {
@@ -456,6 +456,30 @@ export default {
       transform: translatex(-25%) rotateZ(90deg) scale(0.9);
       left: 0;
       bottom: 14%;
+    }
+  }
+}
+@media (orientation: landscape) and (max-width: 992px) {
+  .link {
+    &-left {
+      transform: scale(0.7);
+      left: 3%;
+      top: 4%;
+    }
+    &-right {
+      transform: scale(0.7);
+      right: 3%;
+      bottom: 4%;
+    }
+    &-top {
+      transform: translateX(25%) rotateZ(-90deg) scale(0.7);
+      right: -2%;
+      top: 18%;
+    }
+    &-bottom {
+      transform: translatex(-25%) rotateZ(90deg) scale(0.7);
+      left: -3%;
+      bottom: 22%;
     }
   }
 }

@@ -30,10 +30,10 @@
         </div>
       </b-col>
       <b-col cols="8" class="m-auto">
+        <h4 class="software-title text-center mb-5">Logiciels associés</h4>
         <div
           v-show="current == categories.id"
-          class="software-block justify-content-around align-items-center flex-wrap">
-          <h4 class="software-title text-center mb-5">Logiciels associés</h4>
+          class="d-flex justify-content-around align-items-center flex-wrap">
           <figure class="figure" 
             v-for="software in categories.softwares"
             :key="software.id">
@@ -43,7 +43,7 @@
         </div>
       </b-col>
     </b-row>
-    <b-row class="back justify-content-center align-items-center mt-5 mb-2">
+    <b-row class="back justify-content-center align-items-center mt-5 mb-5">
       <HomePageLink
         action="Retour"
         url="/"
@@ -162,6 +162,10 @@ export default {
     background-color: $white;
   }
   .figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 12vw;
     margin: 1rem;
     border: 1px solid transparent;
