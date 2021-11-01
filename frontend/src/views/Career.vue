@@ -15,7 +15,7 @@
       color="#00a1ba"
       :parity="index % 2 ? (parity = 'even') : (parity = 'odd')"
     />
-    <b-row class="footer justify-content-center align-items-center mb-3">
+    <b-row class="footer justify-content-center align-items-center mt-3 mb-5">
       <HomePageLink
         action="Retour"
         url="/"
@@ -125,10 +125,10 @@ export default {
     .line {
       display: initial;
       height: 82%;
-      top: 9%;
+      top: 10%;
     }
     .link {
-      transform: rotate(90deg) scale(0.8);
+      transform: rotate(90deg) scale(0.6);
     }
   }
 }
@@ -137,7 +137,7 @@ export default {
     .line {
       display: initial;
       height: 78%;
-      top: 11%;
+      top: 12%;
     }
   }
 }
@@ -146,7 +146,7 @@ export default {
     .line {
       display: initial;
       height: 77%;
-      top: 11%;
+      top: 12%;
     }
   }
 }

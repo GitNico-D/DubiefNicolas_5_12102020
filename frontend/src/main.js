@@ -38,6 +38,7 @@ import {
   faSync
 } from "@fortawesome/free-solid-svg-icons";
 import "./validation-config";
+import VueMeta from "vue-meta";
 
 Object.keys(rules).forEach(rule => {
   extend(rule, rules[rule]);
@@ -69,6 +70,7 @@ Vue.component("ValidationProvider", ValidationProvider);
 Vue.use(BootstrapVue);
 Vue.use(VueAxios, axios);
 Vue.use(Vuex);
+Vue.use(VueMeta);
 
 Vue.config.productionTip = false;
 

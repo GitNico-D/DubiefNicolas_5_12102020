@@ -16,7 +16,7 @@
         :date="project.creationDate"
       />
     </b-row>
-    <b-row class="footer justify-content-center align-items-center">
+    <b-row class="footer justify-content-center align-items-center mb-3 mt-3">
       <HomePageLink
         action="Retour"
         url="/"
@@ -84,7 +84,7 @@ export default {
   min-height: 100vh;
   overflow: hidden;
   .footer {
-    height: 15vh;
+    height: 8vh;
   }
   .cards {
     justify-content: space-around;

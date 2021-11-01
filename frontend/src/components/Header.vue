@@ -227,7 +227,7 @@ export default {
       &-nav {
         a {
           margin-bottom: 1rem;
-          font-size: 1.5rem;
+          font-size: 2rem;
         }
       }
     }
@@ -248,7 +248,31 @@ export default {
     }
   }
 }
+
 @media (min-width: 768px) {
+  .row {
+    h1 {
+      font-size: 2.8rem !important;
+    }
+    .navbar {
+      a {
+        margin-bottom: 1.5rem;
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
+@media (orientation: landscape) and (max-width: 992px) {
+  .row {
+    .navbar {
+      a {
+        margin-bottom: 0.8rem;
+        font-size: 1.8rem;
+      }
+    }
+  }
+}
+@media (min-width: 1200px) {
   .row {
     h1 {
       font-size: 2.8rem !important;

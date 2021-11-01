@@ -8,6 +8,9 @@
 import jwt_decode from "jwt-decode";
 
 export default {
+  metaInfo: {
+    title: "DevNweb"
+  },
   computed: {
     loggedIn() {
       return this.$store.state.auth.status.loggedIn;

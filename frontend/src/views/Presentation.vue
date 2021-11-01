@@ -61,7 +61,7 @@
         </div>
       </b-col>
     </b-row>
-    <b-row class="footer justify-content-center align-items-center">
+    <b-row class="footer justify-content-center align-items-center mt-3 mb-3">
       <HomePageLink
         action="Retour"
         url="/"
