@@ -16,7 +16,7 @@
     "core-js": "^3.9.1",
     "jwt-decode": "^3.1.2",
     "vee-validate": "^3.4.5",
-    "vue": "^2.6.11",
+    "vue": "^3.0.0",
     "vue-axios": "^3.2.4",
     "vue-meta": "^2.4.0",
     "vue-router": "^3.5.1",
